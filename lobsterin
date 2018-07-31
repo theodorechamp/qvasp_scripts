@@ -1,0 +1,6 @@
+COHPstartEnergy  -6
+COHPendEnergy	  6
+usebasisset pbevaspfit2015
+basisfunctions ti 4s 3d 4p 
+
+cohpbetween atom 1 and atom 2

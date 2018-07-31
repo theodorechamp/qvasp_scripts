@@ -1,7 +1,9 @@
+# Imports #
 import subprocess
 import time
-#TODO: Edit KPOINTS files
+###########
 
+# Logic #
 for i in range(2,10):
 	subprocess.Popen('mkdir ./'+str(i)+'/',shell=True)
 	time.sleep(1)
@@ -13,4 +15,4 @@ for i in range(2,10):
 	out = open("./"+str(i)+"/KPOINTS","a")
 	out.write(str(i)+' '+str(i)+' '+str(i)+'\n')
 	out.close()
-
+###################################################################

@@ -1,23 +1,35 @@
+#################################
+# Created by Theodore Champ     #
+# Weimer Group                  #
+# Last Updated: July 31, 2018   #
+# For use with Summit Computing #
+# System at CU Boulder          #
+#                               #
+# Will run the 'ene' command    #
+# all the folders specified,    #
+# then save results to a        #
+# space seperated file, which   #
+# is easy to open in excel      #
+#################################
+
+# Imports #
 import subprocess
 import time
+###########
 
-#Set to True if KPOINT study, else False
-KPOINT = False
+# User Input #
+KPOINT = True
+LOWFOLDER = 400
+UPPERFOLDER = 520
+INCREMENT = 5
+FILENAME = 'ENEResults.txt'
+##############
 
-#Change these values if performing on KPOINT study
+# Logic #
 if KPOINT:
 	LOWFOLDER = 2
 	UPPERFOLDER = 9
 	INCREMENT = 1
-
-#Change these values if performing on ENCUT study
-else:
-	LOWFOLDER = 400
-	UPPERFOLDER = 520
-	INCREMENT = 5
-
-#Change value in '' to set where results will be saved
-FILENAME = 'ENEResults.txt'
 
 FOLDER = LOWFOLDER
 
@@ -29,3 +41,4 @@ with open(FILENAME, 'w') as f_obj:
 		f_obj.write(str(FOLDER) + '\t' + energies[0] + '\t' + energies[1]+'\n')
 		FOLDER = FOLDER + INCREMENT
 		time.sleep(1)
+#############################################################################################################
