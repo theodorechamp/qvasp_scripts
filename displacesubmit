@@ -1,0 +1,22 @@
+activatephonopy
+
+for i in {0..10}
+do
+cd ./$i
+mkdir 001
+mkdir 002
+phonopy -d --dim="1 1 1"
+cp POSCAR-001 ./001/POSCAR
+cp POSCAR-002 ./002/POSCAR
+cp ../KPOINTS ./001/
+cp ../KPOINTS ./002/
+cp ../POTCAR ./001/
+cp ../POTCAR ./002/
+cp ../INCAR_displace ./001/INCAR
+cp ../INCAR_displace ./002/INCAR
+cd ./001/
+#qvasp_kpts_mail 4 24 5 UO2_3.log
+cd ../002/
+qvasp_kpts_mail 4 24 5 UO2_3.log
+cd ../../
+done

@@ -1,0 +1,23 @@
+for i in {0..10}
+do
+cd ./$i/
+
+SZ1=$(stat --printf="%s" ./001/CONTCAR)
+echo $SZ1
+if [ $SZ1 -gt 0 ]
+then
+cp ./001/CONTCAR ./001/POSCAR
+fi
+
+SZ2=$(stat --printf="%s" ./002/CONTCAR)
+if [ $SZ2 -gt 0 ]
+then
+cp ./002/CONTCAR ./002/POSCAR
+fi
+
+cd ./001/
+qvasp_kpts_mail 4 24 12 UO2_4.log
+cd ../002/
+qvasp_kpts_mail 4 24 12 UO2_4.log
+cd ../../
+done
